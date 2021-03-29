@@ -17,7 +17,6 @@ distlib==0.3.1
 dj-database-url==0.5.0
 django==3.1.5
 django-cors-headers==3.7.0
-django-crispy-forms==1.11.2
 django-heroku==0.3.1
 django-perms==2.1.0
 djangorestframework==3.12.2
@@ -48,7 +47,6 @@ pycparser==2.20
 pyee==8.1.0
 pyelftools==0.27
 pyflakes==2.2.0
-pyowm==3.1.1
 pyparsing==2.4.7
 pypl==40.10
 pyppeteer==0.2.5
