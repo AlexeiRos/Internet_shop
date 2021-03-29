@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'AllWorkork.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shop_db',
-        'USER': 'shopuser',
-        'PASSWORD': 'devpass',
-        'HOST': 'localhost',
+        'NAME': 'dbvq74s2qt0lr6',
+        'USER': 'mzlsyqcajitkgd',
+        'PASSWORD': '1b7f4e44a7024ca840db1c0a181daff6dc4e98739b5961f7d240708fe6528305',
+        'HOST': 'ec2-34-254-69-72.eu-west-1.compute.amazonaws.com',
         'PORT': 5432
     }
 }
