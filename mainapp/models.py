@@ -17,14 +17,6 @@ def get_product_url(obj, viewname):
     return reverse(viewname, kwargs={'ct_model': ct_model, 'slug': obj.slug})
 
 
-class MinResolutionErrorException(Exception):
-    pass
-
-
-class MaxResolutionErrorException(Exception):
-    pass
-
-
 class LatestProductsManager:
 
     @staticmethod
@@ -119,9 +111,6 @@ class Notebook(Product):
     def get_absolute_url(self):
         return get_product_url(self, 'product_detail')
 
-    def get_model_name(self):
-        return self.__class__._meta.model_name
-
 
 class Smartphone(Product):
 
@@ -143,9 +132,6 @@ class Smartphone(Product):
     def get_absolute_url(self):
         return get_product_url(self, 'product_detail')
 
-    def get_model_name(self):
-        return self.__class__._meta.model_name
-
 
 class Television(Product):
 
@@ -163,9 +149,6 @@ class Television(Product):
 
     def get_absolute_url(self):
         return get_product_url(self, 'product_detail')
-
-    def get_model_name(self):
-        return self.__class__._meta.model_name
 
 
 class Smartwatch(Product):
@@ -192,9 +175,6 @@ class Smartwatch(Product):
 
     def get_absolute_url(self):
         return get_product_url(self, 'product_detail')
-
-    def get_model_name(self):
-        return self.__class__._meta.model_name
 
 
 class CartProduct(models.Model):
