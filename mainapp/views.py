@@ -24,6 +24,10 @@ class BaseView(CartMixin, View):
             'cart': self.cart
         }
         return render(request, 'base.html', context)
+    
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super(BaseView, self).form_valid(form)
 
 
 class ProductDetailView(CartMixin, CategoryDetailMixin, DetailView):
