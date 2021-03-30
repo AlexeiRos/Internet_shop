@@ -11,21 +11,25 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-import django_heroku
+import dj_database_url
 
+DB_NAME = os.environ.get('DB_NAME')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_HOST = os.environ.get('DB_HOST')
+DB_USER = os.environ.get('DB_USER')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-DEBUG = False
-
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!%zg=7wtx*@u_jv#ve(!te0*e#i4r#vd=f*_-pj)r!tac&@p@@'
-
+#SECRET_KEY = '!%zg=7wtx*@u_jv#ve(!te0*e#i4r#vd=f*_-pj)r!tac&@p@@'
+SECRET_KEY = SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -45,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,15 +85,17 @@ WSGI_APPLICATION = 'AllWorkork.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbvq74s2qt0lr6',
-        'USER': 'mzlsyqcajitkgd',
-        'PASSWORD': '1b7f4e44a7024ca840db1c0a181daff6dc4e98739b5961f7d240708fe6528305',
-        'HOST': 'ec2-34-254-69-72.eu-west-1.compute.amazonaws.com',
-        'PORT': 5432
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': '5432',
     }
 }
 
+db = dj_database_url.config()
+DATABASES['default'].update(db)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
