@@ -1,1 +1,1 @@
-web: gunicorn AllWorkork.wsgi --log-file -
+web: gunicorn app:app
