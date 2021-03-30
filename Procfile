@@ -1,1 +1,1 @@
-web: gunicorn foodhelper.wsgi --log-file -
+web: gunicorn AllWorkork.wsgi --log-file -
